@@ -1,0 +1,41 @@
+body {
+  background-color: rgb(6, 6, 6);
+  color: white;
+}
+header {
+  height: 100px;
+  padding-bottom: 30px;
+}
+header img {
+  height: 50%;
+}
+.wrapper {
+  padding-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.container {
+  padding-bottom: 30px;
+}
+.user {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+.user-image {
+  height: 75%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.product {
+  height: 200px;
+  width: 400px;
+}
+.product img {
+  height: 75%;
+}
+.product p {
+  overflow: hidden;
+}
