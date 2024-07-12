@@ -5,10 +5,24 @@ body {
 header {
   height: 100px;
   padding-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
 }
 header img {
   height: 50%;
+  padding-top: 10px;
 }
+header nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  padding-right: 10px;
+}
+.button {
+  max-width: fit-content;
+}
+
 .wrapper {
   padding-bottom: 30px;
   display: flex;
@@ -36,6 +50,30 @@ header img {
 .product img {
   height: 75%;
 }
-.product p {
+
+.product-price-size-brand {
+  display: flex;
+  flex-wrap: wrap;
   overflow: hidden;
+}
+.signup-container {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(54, 53, 53, 0.275);
+}
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  height: 50%;
+  width: 50%;
+  color: black;
 }
