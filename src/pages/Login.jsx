@@ -15,7 +15,7 @@ const Login = ({ setUser }) => {
       event.preventDefault();
       setIsLoading(true);
       const response = await axios.post(
-        "https://site--backend-vinted--ktq7rdyfd79c.code.run/user/login",
+        `https://site--backend-vinted--ktq7rdyfd79c.code.run/user/login`,
         {
           email: email,
           password: password,
@@ -35,39 +35,61 @@ const Login = ({ setUser }) => {
       }
       console.log(error.message);
     }
-    return (
-      <div className="signup-container">
-        <h2>Se connecter</h2>
-        <form onSubmit={handleSubmit} className="signup-form">
-          <input
-            type="email"
-            onChange={(e) => {
-              setEmail(e.target.value);
-              setErrorMessage("");
-            }}
-            placeholder="Email"
-          />
-          <input
-            onChange={(event) => {
-              setPassword(event.target.value);
-            }}
-            placeholder="Password"
-            type="password"
-          />
-          <span>{errorMessage}</span>
-          isLoading ? (
+  };
+  return (
+    <div
+      onClick={() => {
+        navigate("/");
+      }}
+      className="signup-container"
+    >
+      <h2>Se connecter</h2>
+      <form
+        onSubmit={handleSubmit}
+        className="signup-form"
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
+        <button className="cross" onClick={() => navigate("/")}>
+          X
+        </button>
+        <input
+          type="email"
+          onChange={(e) => {
+            setEmail(e.target.value);
+            setErrorMessage("");
+          }}
+          placeholder="Email"
+        />
+        <input
+          onChange={(event) => {
+            setPassword(event.target.value);
+          }}
+          placeholder="Password"
+          type="password"
+        />
+        <span>{errorMessage}</span>
+        {isLoading ? (
           <main>
             <p>Loading...</p>
           </main>
-          ) : (
+        ) : (
           <button disabled={isLoading ? true : false} type="submit">
             Se connecter
           </button>
-          )
-        </form>
-        <Link to="/signup">Pas encore de compte ? Inscris-toi !</Link>
-      </div>
-    );
-  };
+        )}
+      </form>
+      <Link
+        style={{ color: "inherit" }}
+        to="/signup"
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
+        Pas encore de compte ? Inscris-toi !
+      </Link>
+    </div>
+  );
 };
 export default Login;

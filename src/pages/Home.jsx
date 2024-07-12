@@ -1,9 +1,13 @@
 // import data from "../assets/offers.json";
 import Card from "../components/Card";
 
-const Home = ({ data }) => {
+const Home = ({ data, isLoading }) => {
   // console.log("offers>>>>", data);
-  return (
+  return isLoading ? (
+    <main>
+      <p>Loading...</p>
+    </main>
+  ) : (
     <div className="wrapper">
       {data.offers.map((offer) => {
         // console.log(offer);

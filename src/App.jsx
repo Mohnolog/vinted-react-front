@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
+// import dotenv from "dotenv";
+// dotenv.config();
 
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
@@ -51,7 +53,10 @@ function App() {
         <Header token={token} setUser={setUser} />
 
         <Routes>
-          <Route path="/" element={<Home data={data} />} />
+          <Route
+            path="/"
+            element={<Home data={data} isLoading={isLoading} />}
+          />
           <Route path="/offer/:id" element={<Offer data={data} />} />
           <Route path="/signup" element={<SignUp setUser={setUser} />} />
           <Route path="/login" element={<Login setUser={setUser} />} />

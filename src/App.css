@@ -66,14 +66,22 @@ header nav {
   justify-content: center;
   flex-direction: column;
   background-color: rgba(54, 53, 53, 0.275);
+  gap: 10px;
 }
 .signup-form {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
+  background-color: #d6cdcd;
   height: 50%;
   width: 50%;
   color: black;
+  gap: 15px;
+}
+.cross {
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }

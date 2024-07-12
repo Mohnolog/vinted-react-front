@@ -15,7 +15,8 @@ const SignUp = ({ setUser }) => {
     try {
       e.preventDefault();
       const response = await axios.post(
-        "https://site--backend-vinted--ktq7rdyfd79c.code.run/user/signup",
+        `https://site--backend-vinted--ktq7rdyfd79c.code.run/user/signup`,
+
         {
           email: email,
           password: password,
@@ -33,10 +34,25 @@ const SignUp = ({ setUser }) => {
       console.log(error.message);
     }
   };
+
   return (
-    <div className="signup-container">
+    <div
+      className="signup-container"
+      onClick={() => {
+        navigate("/");
+      }}
+    >
       <h2>S'inscrire</h2>
-      <form onSubmit={handleSubmit} className="signup-form">
+      <form
+        onSubmit={handleSubmit}
+        className="signup-form"
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
+        <button className="cross" onClick={() => navigate("/")}>
+          X
+        </button>
         <input
           value={username}
           onChange={(e) => {
@@ -76,7 +92,15 @@ const SignUp = ({ setUser }) => {
         </div>
         <button type="submit">S'inscrire</button>
       </form>
-      <Link to="/login">Tu as déjà un compte ? Connecte-toi !</Link>
+      <Link
+        style={{ color: "inherit" }}
+        to="/login"
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
+        Tu as déjà un compte ? Connecte-toi !
+      </Link>
     </div>
   );
 };
