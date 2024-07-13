@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
-// import dotenv from "dotenv";
-// dotenv.config();
 
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";

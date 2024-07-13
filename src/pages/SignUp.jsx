@@ -15,7 +15,7 @@ const SignUp = ({ setUser }) => {
     try {
       e.preventDefault();
       const response = await axios.post(
-        `https://site--backend-vinted--ktq7rdyfd79c.code.run/user/signup`,
+        `${import.meta.env.VITE_REACT_APP_BASE_URL}/user/signup`,
 
         {
           email: email,

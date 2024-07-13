@@ -15,7 +15,7 @@ const Login = ({ setUser }) => {
       event.preventDefault();
       setIsLoading(true);
       const response = await axios.post(
-        `https://site--backend-vinted--ktq7rdyfd79c.code.run/user/login`,
+        `${import.meta.env.VITE_REACT_APP_BASE_URL}/user/login`,
         {
           email: email,
           password: password,
