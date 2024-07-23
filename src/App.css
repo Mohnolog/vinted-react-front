@@ -85,3 +85,15 @@ header nav {
   top: 5px;
   right: 5px;
 }
+.search {
+  position: relative;
+  padding-top: 20px;
+}
+.fa-magnifying-glass {
+  position: absolute;
+  left: 0px;
+}
+.search input {
+  position: absolute;
+  left: 20px;
+}

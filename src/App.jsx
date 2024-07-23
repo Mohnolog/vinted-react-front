@@ -9,8 +9,15 @@ import Offer from "./pages/Offer";
 import Header from "./components/Header";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
+import Publish from "./pages/Publish";
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import Payment from "./pages/Payment";
+library.add(faMagnifyingGlass);
 
 function App() {
+  const [search, setSearch] = useState("");
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [token, setToken] = useState(Cookies.get("token" || null));
@@ -29,7 +36,7 @@ function App() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://lereacteur-vinted-api.herokuapp.com/offers"
+          `${import.meta.env.VITE_REACT_APP_BASE_URL}/offers?title=${search}`
         );
         // console.log(data.offers);
 
@@ -40,7 +47,7 @@ function App() {
       setIsLoading(false);
     };
     fetchData();
-  }, []);
+  }, [search]);
   return isLoading ? (
     <main>
       <p>Loading...</p>
@@ -48,7 +55,7 @@ function App() {
   ) : (
     <>
       <Router>
-        <Header token={token} setUser={setUser} />
+        <Header token={token} setUser={setUser} setSearch={setSearch} />
 
         <Routes>
           <Route
@@ -58,6 +65,8 @@ function App() {
           <Route path="/offer/:id" element={<Offer data={data} />} />
           <Route path="/signup" element={<SignUp setUser={setUser} />} />
           <Route path="/login" element={<Login setUser={setUser} />} />
+          <Route path="/publish" element={<Publish token={token} />} />
+          <Route path="/payment" element={<Payment />} />
         </Routes>
       </Router>
     </>

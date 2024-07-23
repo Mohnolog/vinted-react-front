@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import axios from "axios";
 
@@ -15,7 +16,7 @@ export default function Offer() {
       try {
         // Destructuration de l'objet retourné par la requête pour accéder directement à la clé 'data'
         const { data } = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
+          `${import.meta.env.VITE_REACT_APP_BASE_URL}/offer/${id}`
         );
 
         // console.log("offer page - data>>", data);
@@ -74,6 +75,7 @@ export default function Offer() {
 
         <p>{offerInfos.product_name}</p>
         <p>{offerInfos.owner.account.username}</p>
+        <Link to={"/payment"}>Acheter</Link>
       </div>
     </main>
   );
