@@ -80,7 +80,13 @@ const CheckoutForm = () => {
         navigate("/");
       }}
     >
-      <form onSubmit={handleSubmit} className="signup-form">
+      <form
+        onSubmit={handleSubmit}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+        className="signup-form"
+      >
         <PaymentElement />
         <button type="submit" disabled={!stripe || !elements || isLoading}>
           Pay

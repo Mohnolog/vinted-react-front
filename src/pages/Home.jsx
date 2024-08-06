@@ -10,8 +10,6 @@ const Home = ({ data, isLoading }) => {
   ) : (
     <div className="wrapper">
       {data.offers.map((offer) => {
-        // console.log(offer);
-
         return <Card key={offer._id} offer={offer} />;
       })}
     </div>

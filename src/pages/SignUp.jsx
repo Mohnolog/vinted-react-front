@@ -43,6 +43,9 @@ const SignUp = ({ setUser }) => {
       }}
     >
       <h2>S'inscrire</h2>
+      <button className="cross" onClick={() => navigate("/")}>
+        X
+      </button>
       <form
         onSubmit={handleSubmit}
         className="signup-form"
@@ -50,9 +53,6 @@ const SignUp = ({ setUser }) => {
           e.stopPropagation();
         }}
       >
-        <button className="cross" onClick={() => navigate("/")}>
-          X
-        </button>
         <input
           value={username}
           onChange={(e) => {

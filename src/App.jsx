@@ -47,7 +47,7 @@ function App() {
       setIsLoading(false);
     };
     fetchData();
-  }, [search]);
+  }, [search, data.offers]);
   return isLoading ? (
     <main>
       <p>Loading...</p>
